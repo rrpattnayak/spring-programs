@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- cfg handlermapping -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="welcome.htm">shc</prop>
+				<prop key="wish.htm">wmg</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- cfg controllers -->
+	<bean id="shc" class="com.rr.controller.ShowHomeController"/>
+	<bean id="wmg" class="com.rr.controller.WishMessageController">
+		<constructor-arg ref="wish"/>
+	</bean>
+	
+	<!-- cfg service class -->
+	<bean id="wish" class="com.rr.service.WishMessageGeneratorServiceImpl"/>
+	
+	<!-- cfg viewResolvers -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>

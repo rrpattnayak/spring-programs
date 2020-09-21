@@ -1,0 +1,24 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Handler mapping cfgs -->
+	<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	  <property name="mappings">
+	  	<props>
+	  	  <prop key="welcome.htm">shc</prop>
+	  	</props>
+	  </property>
+	</bean>
+	
+	<!-- configure controller -->
+	<bean id="shc" class="com.rr.controller.MyController"/>
+	
+	<!-- Configure view resolver -->
+	<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>
