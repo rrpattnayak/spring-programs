@@ -16,12 +16,9 @@
 	<!-- cfg controllers -->
 	<bean id="shc" class="com.rr.controller.ShowHomeController"/>
 	<bean id="sclc" class="com.rr.controller.ShowCountriesListController">
-		<constructor-arg ref="controller"/>
+		<constructor-arg ref="countrylist"/>
 	</bean>
-	
-	<!-- cfg service class -->
-	<bean id="controller" class="com.rr.service.ShowCountriesListServiceImpl"/>
-	
+		
 	<!-- cfg viewResolvers -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="WEB-INF/pages/"/>

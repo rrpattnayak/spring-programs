@@ -3,4 +3,4 @@
     
     <h1 style="color:red;text-align:center">Home Page</h1>
     
-    <h2><a href="wish.htm">Get WishMsg</a></h2>
+    <h2><a href="wish.htm">Get ListOfCountries</a></h2>
