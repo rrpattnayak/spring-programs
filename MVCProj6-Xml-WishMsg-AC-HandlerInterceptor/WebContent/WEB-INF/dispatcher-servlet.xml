@@ -8,25 +8,27 @@
 		<property name="mappings">
 			<props>
 				<prop key="welcome.htm">shc</prop>
-				<!-- <prop key="wish.htm"/> -->
+				<prop key="wish.htm">wmg</prop>
 			</props>
 		</property>
+		<property name="interceptors">
+			<array>
+				<!-- <ref bean="tci"/> -->
+				<ref bean="bci"/>
+			</array>
+		</property>
 	</bean>
-	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 	
 	<!-- cfg controllers -->
 	<bean id="shc" class="com.rr.controller.ShowHomeController"/>
-	<!-- <bean id="wmg" class="com.rr.controller.WishMessageController">
+	<bean id="wmg" class="com.rr.controller.WishMessageController">
 		<constructor-arg ref="wish"/>
-	</bean> -->
+	</bean>
+	
+	<!-- interceptor cfg -->
+	<bean id="tci" class="com.rr.interceptor.TimingCheckingInterceptor"/>
+	<bean id="bci" class="com.rr.interceptor.BrowserCheckingInterceptor"/>
 		
-	<!-- Controllers for BeanNameUrlHandlerMapping -->
-	<bean id="/welcome.htm" class="com.rr.controller.ShowHomeController1"/>
-	<bean id="/wish.htm" class="com.rr.controller.WishMessageController">
-		<constructor-arg ref="wish"/>
-	</bean>	
-	
-	
 	<!-- cfg viewResolvers -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="WEB-INF/pages/"/>
