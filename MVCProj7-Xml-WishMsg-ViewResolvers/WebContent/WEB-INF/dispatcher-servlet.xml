@@ -11,30 +11,28 @@
 				<prop key="wish.htm">wmg</prop>
 			</props>
 		</property>
-		<property name="interceptors">
-			<array>
-				<!-- <ref bean="tci"/> -->
-				<!-- <ref bean="bci"/> -->
-				<ref bean="pm"/>
-			</array>
-		</property>
 	</bean>
-
-	<!-- interceptor cfg -->
-	<bean id="tci" class="com.rr.interceptor.TimingCheckingInterceptor"/>
-	<bean id="bci" class="com.rr.interceptor.BrowserCheckingInterceptor"/>
-	<bean id="pm" class="com.rr.interceptor.PerformanceMonitoringInterceptor"/>
 	
 	<!-- cfg controllers -->
 	<bean id="shc" class="com.rr.controller.ShowHomeController"/>
 	<bean id="wmg" class="com.rr.controller.WishMessageController">
 		<constructor-arg ref="wish"/>
-	</bean>	
-		
+	</bean>
+	
+	<!-- cfg service class -->
+	<bean id="wish" class="com.rr.service.WishMessageGeneratorServiceImpl"/>
+	
 	<!-- cfg viewResolvers -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!-- <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/> -->
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="prefix" value="WEB-INF/pages/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean> -->
 
 </beans>
