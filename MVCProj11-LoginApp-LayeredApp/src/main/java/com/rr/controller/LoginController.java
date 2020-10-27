@@ -35,6 +35,7 @@ public class LoginController {
 		//add reuslt map object
 		map.put("resultMsg",result);
 		//return lvn;
+		System.out.println();
 		return "login_form";
 	}//method
 }
