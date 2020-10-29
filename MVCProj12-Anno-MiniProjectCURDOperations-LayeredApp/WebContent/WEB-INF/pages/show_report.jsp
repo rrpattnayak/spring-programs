@@ -32,7 +32,7 @@
                       
                       <td>
                           <a href="editEmp.htm?empNo=${dto.empNo}"><img src="images/edit.png" width="70" height="70"/></a>
-                          <a href="deleteEmp.htm?eno=${dto.empNo}"  onclick="confirm('are you sure you want to delete this record ')"><img src="images/delete.png" width="70" height="70"/></a>
+                          <a href="deleteEmp.htm?eno=${dto.empNo}"  onclick="return confirm('are you sure you want to delete this record ')"><img src="images/delete.png" width="70" height="70"/></a>
                       </td>
                    </tr>
               </c:forEach>
